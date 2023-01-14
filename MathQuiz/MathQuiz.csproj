@@ -85,6 +85,9 @@
     </Content>
     <Content Include="ChalkboardMath.ico" />
     <Content Include="MathIcon.ico" />
+    <Content Include="TubularBell.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

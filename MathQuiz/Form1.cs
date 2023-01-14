@@ -40,7 +40,8 @@ namespace MathQuiz
         // This integer variable keeps track of the 
         // remaining time.
         int timeLeft;
-        System.Media.SoundPlayer player = new System.Media.SoundPlayer();        
+        System.Media.SoundPlayer playerRight = new System.Media.SoundPlayer();
+        System.Media.SoundPlayer playerEnd = new System.Media.SoundPlayer();
 
         public mathQuizForm()
 		{
@@ -94,8 +95,9 @@ namespace MathQuiz
             dividedRightLabel.Text = divisor.ToString();
             quotient.Value = 0;
 
-            // Initialize the sound player
-            player.SoundLocation = "bell.wav";
+            // Initialize the sound players
+            playerRight.SoundLocation = "bell.wav";
+            playerEnd.SoundLocation = "TubularBell.wav";
 
             // Start the timer.
             timeLeft = 30;
@@ -129,10 +131,11 @@ namespace MathQuiz
             if (CheckTheAnswer())
             {
                 // If CheckTheAnswer() returns true, then the user 
-                // got the answer right. Stop the timer  
+                // got the answer right. Stop the timer,
+                // play the bell,
                 // and show a MessageBox.
                 timer1.Stop();
-                player.Play();
+                playerEnd.Play();
                 timeLabel.BackColor = default(Color);
                 MessageBox.Show("You got all the answers right!",
                                 "Congratulations!");
@@ -177,6 +180,30 @@ namespace MathQuiz
                 int lengthOfAnswer = answerBox.Value.ToString().Length;
                 answerBox.Select(0, lengthOfAnswer);
             }
+        }
+
+        private void sumChange(object sender, EventArgs e)
+        {
+            if (addend1 + addend2 == sum.Value)
+                playerRight.Play();
+        }
+
+        private void differenceChange(object sender, EventArgs e)
+        {
+            if (minuend - subtrahend == difference.Value)
+                playerRight.Play();
+        }
+
+        private void productChange(object sender, EventArgs e)
+        {
+            if (multiplicand * multiplier == product.Value)
+                playerRight.Play();
+        }
+
+        private void quotientChange(object sender, EventArgs e)
+        {
+            if (dividend / divisor == quotient.Value)
+                playerRight.Play();
         }
     }
 }
