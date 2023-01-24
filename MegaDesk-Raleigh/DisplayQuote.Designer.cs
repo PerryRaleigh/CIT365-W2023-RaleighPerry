@@ -48,6 +48,7 @@
             this.quoteDateTextBox = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.priceTextBox = new System.Windows.Forms.TextBox();
+            this.saveQuoteButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // CloseButton
@@ -232,6 +233,16 @@
             this.priceTextBox.Size = new System.Drawing.Size(197, 20);
             this.priceTextBox.TabIndex = 53;
             // 
+            // saveQuoteButton
+            // 
+            this.saveQuoteButton.Location = new System.Drawing.Point(178, 292);
+            this.saveQuoteButton.Name = "saveQuoteButton";
+            this.saveQuoteButton.Size = new System.Drawing.Size(97, 32);
+            this.saveQuoteButton.TabIndex = 1;
+            this.saveQuoteButton.Text = "&Save Quote";
+            this.saveQuoteButton.UseVisualStyleBackColor = true;
+            this.saveQuoteButton.Click += new System.EventHandler(this.CloseButton_Click);
+            // 
             // DisplayQuote
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -256,6 +267,7 @@
             this.Controls.Add(this.customerFirstNameTextBox);
             this.Controls.Add(this.customerFirstNameLabel);
             this.Controls.Add(this.label2);
+            this.Controls.Add(this.saveQuoteButton);
             this.Controls.Add(this.CloseButton);
             this.Name = "DisplayQuote";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -289,5 +301,6 @@
         private System.Windows.Forms.TextBox quoteDateTextBox;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox priceTextBox;
+        private System.Windows.Forms.Button saveQuoteButton;
     }
 }
