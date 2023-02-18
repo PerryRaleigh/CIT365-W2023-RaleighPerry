@@ -22,3 +22,6 @@ body {
 .carousel-item-prev {
     display: block;
 }
+.carousel-inner > .item > img {
+    margin: auto;
+}
