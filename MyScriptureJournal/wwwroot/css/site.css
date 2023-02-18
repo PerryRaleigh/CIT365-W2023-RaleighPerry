@@ -16,3 +16,9 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+.carousel-item.active,
+.carousel-item-next,
+.carousel-item-prev {
+    display: block;
+}

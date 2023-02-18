@@ -13,8 +13,13 @@
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container">
                 <a class="navbar-brand" asp-area="" asp-page="/Index">MyScriptureJournal</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target=".navbar-collapse"
+                        aria-controls="navbarSupportedContent"
+                        aria-expanded="false"
+                        aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
@@ -24,6 +29,19 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-page="/Privacy">Privacy</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link text-dark dropdown-toggle"
+                               id="navbarDarkDropdownMenuLink"
+                               role="button"
+                               data-bs-toggle="dropdown"
+                               aria-expanded="false">
+                                Scriptures
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+                                <li><a class="dropdown-item" asp-page="/scriptures/viewallscriptureentries">View All</a></li>
+                                <li><a class="dropdown-item" asp-page="/scriptures/addscriptureentry">Add New</a></li>
+                            </ul>
                         </li>
                     </ul>
                 </div>
@@ -37,8 +55,12 @@
     </div>
 
     <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2023 - MyScriptureJournal - <a asp-area="" asp-page="/Privacy">Privacy</a>
+        <div class="row">
+            <div class="col-md-4">
+                &copy; 2023 - Perry E Raleigh - <a asp-area="" asp-page="/Privacy">Privacy</a>
+            </div>
+            <div class="col-md-4">
+            </div>
         </div>
     </footer>
 
