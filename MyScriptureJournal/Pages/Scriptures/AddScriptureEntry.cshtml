@@ -1,4 +1,4 @@
-﻿@page
+﻿@page "/scriptures/add"
 @model MyScriptureJournal.Pages.Scriptures.AddScriptureEntryModel
 @{
 }
@@ -6,3 +6,49 @@
 
 <h1>Add New Scripture Entry</h1>
 <hr />
+
+<div class="row">
+    <div class="col-md-6">
+        <form method="post">
+            <div class="mb-3">
+                <label asp-for="NewScriptureEntry!.Volume">Volume</label>
+                <select asp-for="NewScriptureEntry!.Volume" class="form-control">
+                    <option value="Old Testament">Old Testament</option>
+                    <option value="New Testament">New Testament</option>
+                    <option value="Book of Mormon">Book of Mormon</option>
+                    <option value="Doctrine and Covenants">Doctrine and Covenants</option>
+                    <option value="Pearl of Great Price">Pearl of Great Price</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label asp-for="NewScriptureEntry!.Book">Book</label>
+                <input asp-for="NewScriptureEntry!.Book" class="form-control" />
+                <span asp-validation-for="NewScriptureEntry!.Book"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="NewScriptureEntry!.Chapter">Chapter</label>
+                <input asp-for="NewScriptureEntry!.Chapter" class="form-control" />
+                <span asp-validation-for="NewScriptureEntry!.Chapter"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="NewScriptureEntry!.FromVerse">From Verse</label>
+                <input asp-for="NewScriptureEntry!.FromVerse" class="form-control" />
+                <span asp-validation-for="NewScriptureEntry!.FromVerse"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="NewScriptureEntry!.ToVerse">To Verse</label>
+                <input asp-for="NewScriptureEntry!.ToVerse" class="form-control" />
+            </div>
+            <div class="mb-3">
+                <label asp-for="NewScriptureEntry!.Note">Note</label>
+                <textarea asp-for="NewScriptureEntry!.Note" class="form-control"></textarea>
+                <span asp-validation-for="NewScriptureEntry!.Note"></span>
+            </div>
+            <div class="mb-3">
+                <label for="dateCreated">Date Created</label>
+                <p id="dateCreated">@Model.dateTime</p>
+            </div>
+            <button class="btn btn-success">Create</button>
+        </form>
+    </div>
+</div>

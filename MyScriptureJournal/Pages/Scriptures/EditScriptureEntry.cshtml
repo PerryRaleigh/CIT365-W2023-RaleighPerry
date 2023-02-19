@@ -1,0 +1,54 @@
+﻿@page "/scriptures/edit/{id:int}"
+@model MyScriptureJournal.Pages.Scriptures.EditScriptureEntryModel
+@{
+}
+
+<h1>Edit Scripture Entry @RouteData.Values["id"]</h1>
+<hr />
+
+<div class="row">
+    <div class="col-md-6">
+        <form method="post">
+            <div class="mb-3">
+                <label asp-for="EditScriptureEntry!.Volume">Volume</label>
+                <select asp-for="EditScriptureEntry!.Volume" class="form-control">
+                    <option value="Old Testament">Old Testament</option>
+                    <option value="New Testament">New Testament</option>
+                    <option value="Book of Mormon">Book of Mormon</option>
+                    <option value="Doctrine and Covenants">Doctrine and Covenants</option>
+                    <option value="Pearl of Great Price">Pearl of Great Price</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label asp-for="EditScriptureEntry!.Book">Book</label>
+                <input asp-for="EditScriptureEntry!.Book" class="form-control" />
+                <span asp-validation-for="EditScriptureEntry!.Book"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="EditScriptureEntry!.Chapter">Chapter</label>
+                <input asp-for="EditScriptureEntry!.Chapter" class="form-control" />
+                <span asp-validation-for="EditScriptureEntry!.Chapter"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="EditScriptureEntry!.FromVerse">From Verse</label>
+                <input asp-for="EditScriptureEntry!.FromVerse" class="form-control" />
+                <span asp-validation-for="EditScriptureEntry!.FromVerse"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="EditScriptureEntry!.ToVerse">To Verse</label>
+                <input asp-for="EditScriptureEntry!.ToVerse" class="form-control" />
+            </div>
+            <div class="mb-3">
+                <label asp-for="EditScriptureEntry!.Note">Note</label>
+                <textarea asp-for="EditScriptureEntry!.Note" class="form-control"></textarea>
+                <span asp-validation-for="EditScriptureEntry!.Note"></span>
+            </div>
+            <div class="mb-3">
+                <label for="dateCreated">Date Created</label>
+                <p id="dateCreated">@Model.dateTime</p>
+            </div>
+            <button asp-page-handler="edit" class="btn btn-success">Submit</button>
+            <button asp-page-handler="delete" class="btn btn-danger float-end">Delete</button>
+        </form>
+    </div>
+</div>

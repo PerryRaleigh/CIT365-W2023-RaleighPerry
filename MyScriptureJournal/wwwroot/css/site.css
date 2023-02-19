@@ -14,7 +14,31 @@ html {
 }
 
 body {
-  margin-bottom: 60px;
+  margin-bottom: 80px;
+  overflow: auto;
+}
+
+footer {
+    padding: 10px;
+}
+
+.table {
+    margin-bottom: 50px;
+}
+
+.note-width {
+    width: 40%;
+}
+
+.validation-summary-errors ul {
+    color: red;
+    list-style: none;
+    margin: 10px 0;
+    padding: 0;
+}
+
+.field-validation-error {
+    color: red;
 }
 
 .carousel-item.active,

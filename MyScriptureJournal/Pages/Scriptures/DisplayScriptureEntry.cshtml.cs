@@ -1,35 +1,34 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using MyScriptureJournal.Data;
 using MyScriptureJournal.Data.Models;
+using MyScriptureJournal.Data;
 
 namespace MyScriptureJournal.Pages.Scriptures
 {
-    public class AddScriptureEntryModel : PageModel
+    public class DisplayScriptureEntryModel : PageModel
     {
         private IScriptureRepository scriptureRepo;
         public DateTime dateTime;
 
-        public AddScriptureEntryModel(IScriptureRepository scriptureRepository) 
+        public DisplayScriptureEntryModel(IScriptureRepository scriptureRepository)
         {
             this.scriptureRepo = scriptureRepository;
             dateTime = DateTime.Now;
         }
 
+        [FromRoute]
+        public int Id { get; set; }
+
         [BindProperty]
-        public ScriptureEntry? NewScriptureEntry { get; set; }
+        public ScriptureEntry? DisplayScriptureEntry { get; set; }
 
         public void OnGet()
         {
+            DisplayScriptureEntry = this.scriptureRepo.GetById(Id);
         }
 
-        public async Task<IActionResult> OnPost()
+        public IActionResult OnPost()
         {
-            if (!ModelState.IsValid) { return Page(); }
-
-            NewScriptureEntry!.Created = dateTime;
-            this.scriptureRepo.Add(NewScriptureEntry);
-
             return RedirectToPage("ViewAllScriptureEntries");
         }
     }
