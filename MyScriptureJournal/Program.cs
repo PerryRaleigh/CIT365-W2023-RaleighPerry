@@ -1,9 +1,23 @@
+using MyScriptureJournal.Data;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+builder.Services.AddDbContext<ScriptureContext>(options =>
+	options.UseSqlServer(
+		builder.Configuration.GetConnectionString("ScriptureEntries")
+		?? throw new InvalidOperationException("Connection string 'ScriptureEntries' not found.")));
+builder.Services.AddScoped<IScriptureRepository, ScriptureRepository>();
 
 var app = builder.Build();
+
+using (var scope = app.Services.CreateScope())
+{
+    var services = scope.ServiceProvider;
+    SeedData.Initialize(services);
+}
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())

@@ -1,0 +1,42 @@
+﻿@page "/scriptures/display/{id:int}"
+@model MyScriptureJournal.Pages.Scriptures.DisplayScriptureEntryModel
+@{
+}
+<h1>Add New Scripture Entry</h1>
+<hr />
+
+<div class="row">
+    <div class="col-md-6">
+        <form method="post">
+            <div class="mb-3">
+                <label asp-for="DisplayScriptureEntry!.Volume">Volume</label>
+                <input asp-for="DisplayScriptureEntry!.Volume" class="form-control" readonly />
+            </div>
+            <div class="mb-3">
+                <label asp-for="DisplayScriptureEntry!.Book">Book</label>
+                <input asp-for="DisplayScriptureEntry!.Book" class="form-control" readonly />
+            </div>
+            <div class="mb-3">
+                <label asp-for="DisplayScriptureEntry!.Chapter">Chapter</label>
+                <input asp-for="DisplayScriptureEntry!.Chapter" class="form-control" readonly />
+            </div>
+            <div class="mb-3">
+                <label asp-for="DisplayScriptureEntry!.FromVerse">From Verse</label>
+                <input asp-for="DisplayScriptureEntry!.FromVerse" class="form-control" readonly />
+            </div>
+            <div class="mb-3">
+                <label asp-for="DisplayScriptureEntry!.ToVerse">To Verse</label>
+                <input asp-for="DisplayScriptureEntry!.ToVerse" class="form-control" readonly />
+            </div>
+            <div class="mb-3">
+                <label asp-for="DisplayScriptureEntry!.Note">Note</label>
+                <textarea asp-for="DisplayScriptureEntry!.Note" class="form-control" readonly></textarea>
+            </div>
+            <div class="mb-3">
+                <label for="dateCreated">Date Created</label>
+                <p id="dateCreated">@Model.dateTime</p>
+            </div>
+            <button class="btn btn-success">Return to List</button>
+        </form>
+    </div>
+</div>

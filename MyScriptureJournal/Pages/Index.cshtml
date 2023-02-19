@@ -4,7 +4,55 @@
     ViewData["Title"] = "Home page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <p></p>
+        </div>
+        <div class="col">
+            <div id="carouselHomePage" class="carousel slide" data-ride="carousel" data-interval="5000">
+                <ol class="carousel-indicators">
+                    <li data-target="carouselHomePage" data-slide-to="0" class="active"></li>
+                    <li data-target="carouselHomePage" data-slide-to="1"></li>
+                    <li data-target="carouselHomePage" data-slide-to="2"></li>
+                    <li data-target="carouselHomePage" data-slide-to="3"></li>
+                </ol>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="media">
+                            <img src="~/images//LehiPraying.jpeg"
+                                 alt="Lehi Praying" />
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="media">
+                            <img src="~/images/LiahonaLehiSariah.jpeg"
+                                 alt="Lehi Showing Liahona to Sariah" />
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="media">
+                            <img src="~/images/NephiHunting.jpeg"
+                                 alt="Nephi Hunting" />
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="media">
+                            <img src="~/images/WeddingReception.jpeg"
+                                 alt="Wedding Reception" />
+                        </div>
+                    </div>
+                </div>
+                <a class="carousel-control-prev" href="#carouselHomePage" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                </a>
+                <a class="carousel-control-next" href="#carouselHomePage" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                </a>
+            </div>
+        </div>
+        <div class="col">
+            <p></p>
+        </div>
+    </div>
 </div>
