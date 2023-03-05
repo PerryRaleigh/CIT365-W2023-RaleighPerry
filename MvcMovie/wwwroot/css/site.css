@@ -16,3 +16,38 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+img {
+    border: 2px solid;
+    border-radius: 6px;
+    padding: 5px;
+    width: 60%;
+    height: auto;
+}
+
+.right {
+    position: absolute;
+    right: 0px;
+    padding: 5px;
+}
+
+.thumbNail {
+    border: 1px solid;
+    border-radius: 1px;
+    padding: 3px;
+    width: 100px;
+    height: 150px;
+}
+
+.vertical-center {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+.image-fluid-main {    
+    width: auto;
+    height: 20%;
+}
