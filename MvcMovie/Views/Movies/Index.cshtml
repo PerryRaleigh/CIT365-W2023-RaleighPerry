@@ -1,10 +1,10 @@
 ﻿@model MvcMovie.Models.MovieGenreViewModel
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Movie List";
 }
 
-<h1>Index</h1>
+<h1>Movie List</h1>
 
 <p>
     <a asp-action="Create">Create New</a>
@@ -16,19 +16,20 @@
             <option value="">All</option>
         </select>
 
-        Title: <input type="text" asp-for="SearchString" />
+        Filter by Title: <input type="text" asp-for="SearchString" />
         <input type="submit" value="Filter" />
     </p>
 </form>
 
-<table class="table">
+<table class="table table-striped table-bordered table-responsive">
     <thead>
         <tr>
             <th>
                 @Html.DisplayNameFor(model => model.Movies![0].Title)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Movies![0].ReleaseDate)
+                @Html.ActionLink(@Html.DisplayNameFor(model => model.Movies![0].ReleaseDate),
+                "Index", new { sortOrder = ViewBag.DateSortParm })
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Movies![0].Genre)
@@ -38,6 +39,9 @@
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Movies![0].Rating)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Movies![0].ImageFileName)
             </th>
             <th></th>
         </tr>
@@ -60,6 +64,9 @@
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => movie.Rating)
+                </td>
+                <td>
+                    <img class="thumbNail" src="~/images/movies/@movie.ImageFileName" alt="@movie.Title" />
                 </td>
                 <td>
                     <a asp-action="Edit" asp-route-id="@movie.Id">Edit</a> |

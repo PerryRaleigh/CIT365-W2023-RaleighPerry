@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -10,16 +11,16 @@ namespace MvcMovie.Models
 
         [StringLength(60, MinimumLength = 3)]
         [Required]
-        public string? Title { get; set; }
+        public string Title { get; set; }
 
         [Display(Name = "Release Date")]
         [DataType(DataType.Date)]
         public DateTime ReleaseDate { get; set; }
 
-        [RegularExpression(@"^[A-Z]+[a-zA-Z\s]*$")]
+        [RegularExpression(@"^[A-Z]+[a-zA-Z""'\s\/,]*$")]
         [Required]
         [StringLength(30)]
-        public string? Genre { get; set; }
+        public string Genre { get; set; }
 
         [Range(1, 100)]
         [DataType(DataType.Currency)]
@@ -29,6 +30,13 @@ namespace MvcMovie.Models
         [RegularExpression(@"^[A-Z]+[a-zA-Z0-9""'\s-]*$")]
         [StringLength(9)]
         [Required]
-        public string? Rating { get; set; }
+        public string Rating { get; set; }
+
+        [DisplayName ("Movie Image File")]
+        [NotMapped]
+        public IFormFile Upload { get; set; }
+
+        [DisplayName("Movie Image")]
+        public string ImageFileName { get; set; }
     }
 }
