@@ -126,6 +126,13 @@ namespace MvcMovie.Controllers
         // GET: Movies/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
+            // Use LINQ to get list of genres.
+            IQueryable<string> genreQuery = from m in _context.Movie
+                                            orderby m.Genre
+                                            select m.Genre;
+            SelectList genreList = new(await genreQuery.Distinct().ToListAsync());
+            ViewBag.GenreList = genreList;
+
             if (id == null || _context.Movie == null)
             {
                 return NotFound();
@@ -146,7 +153,7 @@ namespace MvcMovie.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Title,ReleaseDate,Genre,Price,Rating,Upload")] Movie movie)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Title,ReleaseDate,Genre,Price,Rating,Upload,ImageFileName")] Movie movie)
         {
             if (id != movie.Id)
             {
